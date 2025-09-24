@@ -1,25 +1,20 @@
 import 'dart:io';
 
 void main() {
-  stdout.write("Masukkan angka: ");
+  stdout.write("Masukkan batas angka: ");
   int n = int.parse(stdin.readLineSync()!);
 
-  bool prima = true;
-
-  if (n < 2) {
-    prima = false;
-  } else {
-    for (int i = 2; i <= n ~/ 2; i++) {
-      if (n % i == 0) {
+  print("Bilangan prima dari 1 sampai $n adalah:");
+  for (int i = 2; i <= n; i++) {
+    bool prima = true;
+    for (int j = 2; j <= i ~/ 2; j++) {
+      if (i % j == 0) {
         prima = false;
         break;
       }
     }
-  }
-
-  if (prima) {
-    print("$n adalah bilangan prima");
-  } else {
-    print("$n bukan bilangan prima");
+    if (prima) {
+      print(i);
+    }
   }
 }
